@@ -7,10 +7,17 @@ let ws = null;
 export function connectWs() {
   return new Promise((resolve, reject) => {
     if (!ws || ws.readyState !== WebSocket.OPEN) {
-      ws = new WebSocket('ws://localhost:7070');
+      const hostname = window.location.hostname;
+      const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+      const port = hostname === 'localhost' ? '7070' : window.location.port; // на Render порт берется из URL
+      const WS_URL = hostname === 'localhost'
+        ? `${protocol}://${hostname}:7070`
+        : `${protocol}://${hostname}`; // публичный URL Render
+
+      ws = new WebSocket(WS_URL);
 
       ws.addEventListener('open', () => {
-        console.log('WS соединение установлено (open)');
+        console.log('WS соединение установлено (open)', WS_URL);
         resolve(ws);
       });
 

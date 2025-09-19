@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const port = process.env.PORT || 7070;
 const wsServer = new WebSocketServer({ server });
 const MESSAGES_FILE = './messages.json';
-
+const CLIENT_URL = process.env.CLIENT_URL || '';
 
 app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
 app.use(express.json());
@@ -26,9 +26,9 @@ const reservedLogins = new Map();
 const clients = new Map(); // { nickname = { socket, avatar } }
 let messages = [];
 const avatars = [
-  'http://localhost:7070/api/avatars/free-icon-hacker-924915.png',
-  'http://localhost:7070/api/avatars/free-icon-ninja-435061.png',
-  'http://localhost:7070/api/avatars/free-icon-positive-1397175.png'
+  `${CLIENT_URL}/api/avatars/free-icon-hacker-924915.png`,
+  `${CLIENT_URL}/api/avatars/free-icon-ninja-435061.png`,
+  `${CLIENT_URL}/api/avatars/free-icon-positive-1397175.png`
 ];
 
 // Загрузка истории сообщений
