@@ -1,8 +1,8 @@
-# SSE WebSocket Chat
+# WebSocket Chat
 
 ![License](https://img.shields.io/badge/license-ISC-blue)
 
-Простой чат с использованием **WebSocket** и **Server-Sent Events**, реализованный на **Node.js**, **Express** и **Vanilla JS**.  
+Простой чат с использованием **WebSocket**, реализованный на **Node.js**, **Express** и **Vanilla JS**.  
 
 ---
 
