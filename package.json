@@ -1,0 +1,49 @@
+{
+  "name": "sse-ws_hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "node src/api/server.js",
+    "lint": "eslint .",
+    "start:client": "webpack serve --mode development --hot",
+    "build:client": "webpack --mode production",
+    "watch:client": "webpack --mode development --watch",
+    "start:server": "pm2 start ./src/api/server.js --name chat-serve --watch",
+    "stop": "pm2 stop chat-serve",
+    "restart": "pm2 restart chat-serve",
+    "logs": "pm2 logs chat-serve",
+    "delete": "pm2 delete chat-serve",
+    "watch": "concurrently \"npm run watch:client\" \"npm run watch:server\"",
+    "dev": "concurrently \"npm run start:client\" \"npm run watch:server\""
+  },
+  "keywords": [],
+  "author": "Dzenny",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-loader": "^10.0.0",
+    "concurrently": "^9.2.1",
+    "copy-webpack-plugin": "^13.0.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.33.0",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "nodemon": "^3.0.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.101.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.3"
+  }
+}

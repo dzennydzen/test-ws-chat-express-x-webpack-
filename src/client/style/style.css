@@ -1,0 +1,210 @@
+/* ================== Шрифты ================== */
+@font-face {
+    font-family: 'Raleway SemiBold';
+    src: url('../fonts/Raleway-SemiBold.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway SemiItalic';
+    src: url('../fonts/Raleway-SemiBoldItalic.ttf');
+    font-style: normal;
+}
+
+* {
+    font-family: 'Raleway SemiBold';
+}
+
+/* ================== Общие стили ================== */
+body {
+    background-color: rgb(178, 209, 235);
+}
+
+h1 {
+    display: none;
+}
+
+/* ================== Модалка логина ================== */
+.login-dialog {
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1.5s ease-in-out;
+}
+
+.hidden {
+    top: -100%;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgb(225, 0, 255);
+}
+
+#input-btn_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#login-input {
+    min-width: 80%;
+    height: 30px;
+}
+
+#login-btn {
+    min-width: 40%;
+}
+
+#login-label {
+    font-size: 20px;
+}
+
+/* ================== Чат ================== */
+/* Общий контейнер */
+.chat-container {
+    display: flex;
+    width: 800px;
+    height: 500px;
+    margin: 50px auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: sans-serif;
+    background-color: #83476f;
+}
+
+/* ======== Список активных пользователей ======== */
+.active-users_block {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-right: 2px solid #333;
+    box-sizing: border-box;
+}
+
+.user_block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-nick--mine {
+    color: rgb(238, 148, 88);
+}
+
+/* ======== Основной блок чата ======== */
+.chat_block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.chat_block h1 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* ======== Сообщения ======== */
+.messages {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    background-color: #f577cb;
+}
+
+.message {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+.message__meta {
+    display: flex;
+    gap: 10px;
+}
+
+.message__author {
+    font-size: 15px;
+}
+
+.message__time {
+    font-size: 12px;
+}
+
+.message__body {
+    font-family: 'Raleway SemiItalic';
+}
+
+/* ======== Типы сообщений ======== */
+.message--mine {
+    background-color: #dfc1f7;
+    align-self: flex-end;
+}
+
+.message--mine .message__author {
+    color: #e69554;
+}
+
+.message--other {
+    background-color: #b5e5ee;
+    align-self: flex-start;
+}
+
+.message--other .message__author {
+    color: #0f9b0b;
+}
+
+/* ======== Форма отправки сообщения ======== */
+.message-form {
+    display: flex;
+    gap: 8px;
+}
+
+.message-input {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.message-btn {
+    border: none;
+    padding: 5px;
+    background-color: #f59fd8;
+}
